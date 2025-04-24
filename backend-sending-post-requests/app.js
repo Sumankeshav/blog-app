@@ -19,5 +19,12 @@ app.use((req, res, next) => {
 });
 
 app.use("/feed", feedRoutes);
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  const status = err.statusCode || 500;
+  const message = err.message;
+  res.status(status).json({ message: message });
+});
 console.log({ PORT });
 app.listen(PORT);

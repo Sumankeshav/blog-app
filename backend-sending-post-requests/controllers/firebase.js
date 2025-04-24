@@ -5,4 +5,10 @@ admin.initializeApp({
   databaseURL: "https://fun-code-24e3f.firebaseio.com",
 });
 const db = admin.firestore();
-module.exports = db;
+const bucket = admin.storage().bucket();
+
+module.exports = {
+  admin,
+  db,
+  bucket,
+};
